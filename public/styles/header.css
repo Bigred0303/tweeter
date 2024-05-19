@@ -1,7 +1,6 @@
 header {
     height: 400px;
     width: 100%;
-    background-color: #AFEAFE; /* Different color than the nav and body */
     display: flex;
     justify-content: center;
     align-items: center;
