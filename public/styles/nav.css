@@ -1,0 +1,20 @@
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Bungee', sans-serif;
+    height: 120px;
+    width: 100%; 
+    background-color: #4056A1; 
+    color: #FFFFFF; 
+    padding: 1.5em; 
+    box-sizing: border-box; 
+    align-items: center;
+  }
+.rightSide{
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    flex-direction: column;
+}
+
