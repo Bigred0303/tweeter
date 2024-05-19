@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <!-- Meta Information -->
     <title>Tweeter - Home Page</title>
 
@@ -9,8 +9,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- App CSS -->
@@ -18,15 +16,16 @@
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
     <link rel="stylesheet" href="/styles/header.css" type="text/css" />
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/tweet.css" type="text/css" />
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/client.js"></script>
     <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
-  </head>
+</head>
 
-  <body>
+<body>
     <!-- Top nav bar (fixed) -->
     <nav>
       <span class="logo">tweeter</span>
@@ -34,11 +33,10 @@
         <p>Write a new tweet!</p>
         <i class="fa-solid fa-angles-down"></i>
       </div>
-
     </nav>
     <header>
       <div class="avatar-container">
-          <img src="/images/profile-hex.png"> 
+          <img src="/images/profile-hex.png" alt="Profile Image"> 
       </div>
       <br>
       <div>
@@ -50,14 +48,37 @@
       <section class="new-tweet">
         <h2>Compose Tweet</h2>
         <form action="/tweets/" method="POST">
-          <label for="tweet-text">What are you humming about?</label>
-          <textarea name="text" id="tweet-text"></textarea>
+          <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
           <div class="tweet-button">
             <button type="submit" class="styled-button">Tweet</button>
             <output name="counter" class="counter">140</output>
           </div>
         </form>
       </section>
+      <!-- Tweets Section -->
+      <section class="tweets-container">
+        <article class="tweet">
+          <div class="user-info">
+            <div class="left">
+              <img src="/images/profile-hex.png" alt="Profile Image">
+              <h3>Username</h3>
+            </div>
+            <span class="handle">@userhandle</span>
+          </div>
+          <div class="tweet-content">
+            <p>Tweet content goes here. This is some dummy text for the tweet content.</p>
+          </div>
+          <footer>
+            <span class="timestamp">Timestamp</span>
+            <div class="buttons">
+              <button><i class="fas fa-heart"></i> Like</button>
+              <button><i class="fas fa-retweet"></i> Retweet</button>
+              <button><i class="fas fa-reply"></i> Reply</button>
+            </div>
+          </footer>
+        </article>
+
+      </section>
     </main>
-  </body>
+</body>
 </html>
