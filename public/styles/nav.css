@@ -2,7 +2,7 @@
 nav {
     display: flex;
     justify-content: space-between;
-    font-family: 'Bungee', sans-serif;
+    position: fixed;
     height: 120px;
     width: 100%; 
     background-color: #4056A1; 
@@ -11,10 +11,18 @@ nav {
     box-sizing: border-box; 
     align-items: center;
   }
-.rightSide{
+.logo{
+    font-family: 'Bungee', sans-serif;
+}
+.tweet-btn-container{
     display: flex;
-    justify-content: right;
     align-items: center;
     flex-direction: column;
+    justify-content: center;
 }
+
+.fa-solid {
+    color:#FF0000
+}
+
 
