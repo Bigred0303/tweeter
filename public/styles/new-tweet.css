@@ -1,0 +1,30 @@
+.new-tweet {
+    text-align: center;
+    background-color: #dcdfe2;
+  }
+  
+.new-tweet form {
+    width: 50%;
+    margin: 0 auto;
+  }
+
+.new-tweet textarea {
+    border: none;
+    border-bottom: 2px solid black;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+.new-tweet button.styled-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    float: left;
+    cursor: pointer;
+    font-family: 'Bungee', sans-serif;
+    margin-bottom: 10px;
+  }
+
+.new-tweet .counter {
+    float: right;
+  }

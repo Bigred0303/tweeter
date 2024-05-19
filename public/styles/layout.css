@@ -26,6 +26,7 @@ body {
  */
 
  .container{
+  background-color: inherit;
   display: flex;
   margin: auto;
   justify-content: center;
