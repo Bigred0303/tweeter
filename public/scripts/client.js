@@ -54,11 +54,11 @@ $(document).ready(function() {
     // Function to validate tweet
     const validateTweet = function(tweetText) {
       if (!tweetText) {
-        alert('Tweet content cannot be empty.');
+        $('#error-message').text('Tweet content cannot be empty.').slideDown();
         return false;
       }
       if (tweetText.length > 140) {
-        alert('Tweet content exceeds the maximum allowed length of 140 characters.');
+        $('#error-message').text('Tweet content exceeds the maximum allowed length of 140 characters.').slideDown();
         return false;
       }
       return true;
@@ -71,6 +71,9 @@ $(document).ready(function() {
       const $form = $(this);
       const tweetText = $form.find('#tweet-text').val().trim();
       const serializedData = $form.serialize();
+  
+      // Hide the error message before validation
+      $('#error-message').slideUp();
   
       // Validate tweet content
       if (!validateTweet(tweetText)) {
