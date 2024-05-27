@@ -1,10 +1,9 @@
 $(document).ready(function() {
-
     // Create a tweet element from tweet object
     const createTweetElement = function(tweet) {
       const { user, content, created_at } = tweet;
   
-      // timeago to format timestamp
+      // Use timeago to format the timestamp
       const date = timeago.format(created_at);
   
       // Construct HTML structure using template literals
@@ -42,8 +41,21 @@ $(document).ready(function() {
   
       tweets.forEach(tweet => {
         const $tweetElement = createTweetElement(tweet);
-        $tweetsContainer.prepend($tweetElement); 
+        $tweetsContainer.prepend($tweetElement); // Prepend to show the latest tweet first
       });
+    };
+  
+    // Validate tweet
+    const validateTweet = function(tweetText) {
+      if (!tweetText) {
+        alert('Tweet content cannot be empty.');
+        return false;
+      }
+      if (tweetText.length > 140) {
+        alert('Tweet content exceeds the maximum allowed length of 140 characters.');
+        return false;
+      }
+      return true;
     };
   
     // Event listener for new tweet form submission
@@ -51,7 +63,13 @@ $(document).ready(function() {
       event.preventDefault();
   
       const $form = $(this);
+      const tweetText = $form.find('#tweet-text').val().trim();
       const serializedData = $form.serialize();
+  
+      // Validate tweet content
+      if (!validateTweet(tweetText)) {
+        return;
+      }
   
       $.ajax({
         url: '/tweets',
