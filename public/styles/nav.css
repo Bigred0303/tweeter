@@ -6,24 +6,25 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-family: 'Source Sans 3', sans-serif;
 }
-  
+
 nav .logo {
   font-size: 32px;
   font-family: 'Bungee', sans-serif;
 }
-  
+
 nav .tweet-btn-container {
   display: flex;
   align-items: center;
 }
-  
+
 nav .tweet-btn-container p {
   margin: 0;
   margin-right: 20px;
   font-size: 20px;
 }
-  
+
 nav .tweet-btn-container i {
   cursor: pointer;
   font-size: 20px;

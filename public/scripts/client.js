@@ -87,6 +87,7 @@ $(document).ready(function() {
         success: function() {
           loadTweets();
           $form.trigger("reset"); // Clear the form after submission
+          $form.find('.counter').text('140'); // Reset counter
         },
         error: function(error) {
           console.error('Error submitting tweet:', error);

@@ -16,9 +16,10 @@ body {
   background-color: #f4f1ec;
   font-size: 24px;
   font-family: 'Source Sans 3', sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
-/* Container */
 .container {
   background-color: inherit;
   margin-top: 20px;
@@ -28,28 +29,55 @@ body {
   margin-right: auto;
 }
 
-/* Flexbox styles for desktop layout */
 @media (min-width: 1024px) {
   body {
     display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  nav {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #343a40;
+    z-index: 1000;
+  }
+
+  header {
+    width: 20%;
+    max-width: 300px; 
+    height: 300px;
+    padding: 20px;
+    position: fixed;
+    top: 100px; 
+    left: 50px;
+    display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    background-color: #f8f9fa;
+    border: 1px solid #e0e0e0;
   }
 
   main.container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 90%;
+    width: 60%; 
+    margin-left: calc(300px + 70px); 
+    padding-top: 80px; 
   }
 
   .new-tweet {
-    width: 80%;
+    width: 80%; 
     margin-bottom: 20px;
   }
 
   #tweets-container {
-    width: 80%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -57,6 +85,7 @@ body {
 
   .tweet {
     width: 100%;
+    max-width: 800px;
     margin-bottom: 20px;
     padding: 20px;
     background-color: #ffffff;
@@ -67,6 +96,30 @@ body {
 
 /* Styles for smaller screens */
 @media (max-width: 1024px) {
+  body {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav {
+    width: 100%;
+    position: static;
+  }
+
+  header {
+    width: 100%;
+    height: auto;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    background-color: #167be0;
+    border-bottom: 1px solid #e0e0e0;
+    position: static;
+    transform: none;
+    left: 0;
+    top: 0;
+  }
+
   .new-tweet, .tweet {
     width: 90%;
   }
