@@ -1,38 +1,13 @@
 $(document).ready(function() {
-    // Fake data
-    const data = [
-      {
-        "user": {
-          "name": "Newton",
-          "avatars": "https://i.imgur.com/73hZDYK.png",
-          "handle": "@SirIsaac"
-        },
-        "content": {
-          "text": "If I have seen further it is by standing on the shoulders of giants"
-        },
-        "created_at": 1461116232227
-      },
-      {
-        "user": {
-          "name": "Descartes",
-          "avatars": "https://i.imgur.com/nlhLi3I.png",
-          "handle": "@rd"
-        },
-        "content": {
-          "text": "Je pense , donc je suis"
-        },
-        "created_at": 1461113959088
-      }
-    ];
-  
-    // Create a tweet element from a tweet object
+
+    // Create a tweet element from tweet object
     const createTweetElement = function(tweet) {
       const { user, content, created_at } = tweet;
   
-      // Convert the timestamp
-      const date = new Date(created_at).toLocaleString();
+      // timeago to format timestamp
+      const date = timeago.format(created_at);
   
-      // HTML structure using template literals
+      // Construct HTML structure using template literals
       const $tweet = $(`
         <article class="tweet">
           <div class="user-info">
@@ -65,12 +40,47 @@ $(document).ready(function() {
       const $tweetsContainer = $('#tweets-container');
       $tweetsContainer.empty();
   
-      // Add each tweet to the tweets container
       tweets.forEach(tweet => {
         const $tweetElement = createTweetElement(tweet);
-        $tweetsContainer.prepend($tweetElement);
+        $tweetsContainer.prepend($tweetElement); 
       });
     };
   
-    renderTweets(data);
+    // Event listener for new tweet form submission
+    $('#new-tweet-form').submit(function(event) {
+      event.preventDefault();
+  
+      const $form = $(this);
+      const serializedData = $form.serialize();
+  
+      $.ajax({
+        url: '/tweets',
+        method: 'POST',
+        data: serializedData,
+        success: function() {
+          loadTweets();
+          $form.trigger("reset"); // Clear the form after submission
+        },
+        error: function(error) {
+          console.error('Error submitting tweet:', error);
+        }
+      });
+    });
+  
+    // Function to fetch and render the latest tweets
+    const loadTweets = function() {
+      $.ajax({
+        url: '/tweets',
+        method: 'GET',
+        success: function(tweets) {
+          renderTweets(tweets);
+        },
+        error: function(error) {
+          console.error('Error fetching tweets:', error);
+        }
+      });
+    };
+  
+    // Initial load of tweets when the page is ready
+    loadTweets();
   });
