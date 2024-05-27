@@ -68,7 +68,7 @@ $(document).ready(function() {
       // Add each tweet to the tweets container
       tweets.forEach(tweet => {
         const $tweetElement = createTweetElement(tweet);
-        $tweetsContainer.append($tweetElement);
+        $tweetsContainer.prepend($tweetElement);
       });
     };
   
